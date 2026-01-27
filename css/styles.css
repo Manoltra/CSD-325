@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #1f2638, #0f1422);
+  color: #fff;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.signin-page .header-buttons {
+  display: none;
+}
+
+
+.logo {
+  font-family: 'Island Moments', cursive;
+  font-size: 42px;
+}
+
+.header-buttons .btn {
+  border: none;
+  padding: 6px 14px;
+  margin-left: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.sign-in-btn { background: #d88f42; }
+.register-btn { background: #5b4bb7; }
+
+.login-card {
+  width: 280px;
+  background: #d88f42;
+  padding: 20px;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  opacity: 0;
+}
+
+.login-card label {
+  font-size: 14px;
+  display: block;
+  margin-top: 10px;
+  color: #000;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background: #9b9b9b;
+}
+
+.welcome-text {
+  text-align: center;
+  font-family: 'Island Moments', cursive;
+  font-size: 42px;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+.submit-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #111827;
+  color: #fff;
+  cursor: pointer;
+}
+
+.forgot {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #000;
+  text-decoration: underline;
+}
+
+.animate {
+  animation: fadeSlideIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 12px;
+  color: #bfbfbf;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+}
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
