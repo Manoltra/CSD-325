@@ -1,3 +1,4 @@
 # CSD-325
+Visit the website for presentation while its not on AWS:
+[[src\pages\index.html]]
 
-Lol lmao on my end, I accidentally labeled this incorrectly but this is for **CSD 425** but yeah this is the repository for all of our files for **CSD 425**.
