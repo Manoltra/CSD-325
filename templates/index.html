@@ -7,16 +7,16 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="src/css/styles.css">
-	<script src="src/js/script.js"></script>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </head>
 
 
 <body>
   <header>
-    <div href=index.html" class="logo">ProPhoto</div>
+    <a href="/" class="logo">ProPhoto</a>
     <div class="header-buttons">
-      <a href="src/pages/login.html" class="btn sign-in-btn">Sign in</a>
+      <a href="/login" class="btn sign-in-btn">Sign in</a>
       <button class="btn register-btn">Register</button>
     </div>
   </header>
