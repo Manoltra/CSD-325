@@ -1,9 +1,22 @@
 from flask import Flask, request, jsonify, render_template
+import pymysql
 
 app = Flask(__name__)
 
-admin_user = "admin"
-admin_password = "cloud2026"
+def get_admin():
+    connection = pymysql.connect(
+        host="database-1.cl0qai0s4ajo.us-west-2.rds.amazonaws.com",
+        user="user_system",
+        password="csd425cloud2026",
+        port="3306",
+        cursorclass=pymysql.cursors.DictCursor
+    )
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT username, password FROM users WHERE username='admin'")
+            return cursor.fetchone()
+    finally:        
+        connection.close()
 
 # route to html
 @app.route("/")
@@ -25,7 +38,9 @@ def landing():
 def login():
     data = request.get_json()
 
-    if data["username"] == admin_user and data["password"] == admin_password:
+    db_admin = get_admin()
+
+    if data["username"] == db_admin["username"] and data["password"] == db_admin["password"]:
         return jsonify({"success": True})
     else:
         return jsonify({"success": False})
