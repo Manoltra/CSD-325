@@ -36,3 +36,32 @@ async function loginButtonHandler() {
 }
 
 }
+
+// handles register button click and sends credentials to flask
+async function registerButtonHandler() {
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    try {
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({email, password })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            alert('Registration successful! Please log in.');
+            window.location.href = '/login';
+        } else {
+            alert('Registration failed: ' + result.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Server error. Please try again.');
+    }
+}

@@ -45,5 +45,38 @@ def login():
     else:
         return jsonify({"success": False})
     
+# route for signup page
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.json
+    email = data.get('email')
+    password = data.get('password')
+
+    db_admin = get_admin()
+    cursor = db_admin.cursor(dictionary=True)
+    
+    cursor.execute(
+        "SELECT id FROM users WHERE email=%s",
+        (email)
+    )
+
+    existing_user = cursor.fetchone()
+
+    if existing_user:
+        return jsonify({
+            "success": False,
+            "message": "Email already exists"
+        })
+    
+    cursor.execute(
+        "INSERT INTO users (username, email, password) VALUES (%s, %s)",
+        (email, password)
+    )
+    db_admin.commit()
+
+    return jsonify({
+        "success": True
+    })
+ 
 if __name__ == "__main__":
     app.run(debug=True)
