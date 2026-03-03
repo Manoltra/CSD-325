@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="utf-8">
+	<title> ProPhoto </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../css/styles.css">
+	<script src="../js/script.js"></script>
+</head>
+
+
+<body class="login-page">
+	<header>
+        <div href=index.html" class="logo">ProPhoto</div>
+        <div class="header-buttons">
+          <a href="login.html" class="btn login-btn">Login</a>
+          <a href="register.html" class="btn register-btn">Register</a>
+        </div>
+    </header>
+	<div>
+        <h2 class="welcome-text">Welcome!</h2>
+	    <form class="login-card animate" id="loginCard" onsubmit="event.preventDefault(); loginButtonHandler();">
+
+
+            <label>Email</label>
+            <input type="text" id="username" placeholder="Value" />
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Value" />
+
+            <button class="submit-btn" type="submit">Sign In</button>
+            <!--<span class="forgot">Forgot password?</span>-->
+	    </form>
+	</div>
+	<footer class="site-footer">
+    © 2026 ProPhoto. All rights reserved.
+  </footer>
+</body>
+
+</html>

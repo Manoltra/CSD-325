@@ -7,17 +7,16 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+	<link rel="stylesheet" href="../css/styles.css">
 	<script src="../js/script.js"></script>
 </head>
-
 
 <body>
   <header>
         <div  href="index.html" class="logo">ProPhoto</div>
         <div class="header-buttons">
-          <a href="signin.html" class="btn sign-in-btn">Sign in</a>
-          <button class="btn register-btn">Register</button>
+          <a href="login.html" class="btn login-btn">Login</a>
+          <a href="register.html" class="btn register-btn">Register</a>
         </div>
     </header>
   </header>
@@ -36,35 +35,5 @@
     © 2026 ProPhoto. All rights reserved.
   </footer>
 
-  <script>
-async function registerButtonHandler(event) {
-    event.preventDefault();
-    
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    
-    try {
-        const response = await fetch('/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({email, password })
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            alert('Registration successful! Please log in.');
-            window.location.href = '/login';
-        } else {
-            alert('Registration failed: ' + result.message);
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Server error. Please try again.');
-    }
-}
-</script>
 </body>
 </html>

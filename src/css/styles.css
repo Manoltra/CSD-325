@@ -17,7 +17,7 @@ header {
   padding: 20px 30px;
 }
 
-.signin-page .header-buttons {
+.login-page .header-buttons {
   display: none;
 }
 
@@ -38,7 +38,7 @@ header {
   text-decoration: none;
 }
 
-.sign-in-btn { background: #d88f42; }
+.login-btn { background: #d88f42; }
 .register-btn { background: #5b4bb7; }
 
 .login-card {
