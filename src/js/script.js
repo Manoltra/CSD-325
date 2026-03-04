@@ -5,7 +5,6 @@ function redirectToPage(relativeURL)
 	window.location.replace(absoluteURL.href);
 }
 
-
 // Event handler for when the "Login" button is pressed
 async function loginButtonHandler()
 {
@@ -34,9 +33,10 @@ async function loginButtonHandler()
 	}
 }
 
+// Event handler for when the "Register" button is pressed
 async function registerButtonHandler() {
     
-    const email = document.getElementById('email').value;
+    const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     
     try {
@@ -45,7 +45,7 @@ async function registerButtonHandler() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({email, password })
+            body: JSON.stringify({username, password })
         });
         
         const result = await response.json();
