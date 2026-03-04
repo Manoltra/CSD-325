@@ -26,6 +26,7 @@ async function loginButtonHandler()
 	
 	if (response.ok && result.success)
 	{
+        sessionStorage.setItem("username", username);
 		redirectToPage(result.redirect);
 	}
 	else
@@ -61,4 +62,58 @@ async function registerButtonHandler() {
         console.error('Error:', error);
         alert('Server error. Please try again.');
     }
+}
+
+async function mfa_initHandler()
+{
+    const username = sessionStorage.getItem("username");
+
+    const response = await fetch("https://mr53kfv9dg.execute-api.us-west-2.amazonaws.com/send-mfa", 
+	{
+        method: "POST",
+        headers: 
+		{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({username})
+    });
+
+    const result = await response.json();
+    
+    if (response.ok && result.success)
+	{   
+       alert('Login Sucsessful! To complete login, please Authenticate account');
+	}
+	else
+	{
+		alert(result.message);
+	}
+}
+
+async function veryfyMFAHandler() {
+    
+    const username = sessionStorage.getItem("username");
+    const codeInput = document.getElementById('password').value;
+    const response = await fetch("https://mr53kfv9dg.execute-api.us-west-2.amazonaws.com/verify-mfa", 
+	{
+        method: "POST",
+        headers: 
+		{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({username, codeInput})
+    });
+    const result = await response.json();
+
+    if (response.ok && result.success)
+	{   
+       alert('Sucsess! Redirecting...');
+       redirectToPage(result.redirect);
+	}
+	else
+	{
+		alert(result.message);
+	}
+
+
 }

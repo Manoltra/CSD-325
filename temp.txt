@@ -1,0 +1,99 @@
+File structure:
+
+/index.html
+/signin.html
+/styles.css
+/script.js
+
+---------------- index.html ----------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ProPhoto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Island+Moments&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">ProPhoto</form>
+    <div class="header-buttons">
+      <a href="signin.html" class="btn sign-in-btn">Sign in</a>
+      <button class="btn register-btn">Register</button>
+    </form>
+  </header>
+</body>
+</html>
+
+---------------- signin.html ----------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ProPhoto – Sign In</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">ProPhoto</div>
+    <div class="header-buttons">
+      <a href="signin.html" class="btn sign-in-btn">Sign in</a>
+      <button class="btn register-btn">Register</button>
+    </div>
+  </header>
+
+  <form class="login-card animate" id="loginCard" onsubmit="event.preventDefault(); loginButtonHandler();">
+  <label>Email</label>
+  <input type="text" id="username" placeholder="Value" />
+
+  <label>Password</label>
+  <input type="password" id="password" placeholder="Value" />
+
+  <button class="submit-btn" type="submit">Sign In</button>
+  <span class="forgot">Forgot password?</span>
+</form>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+---------------- styles.css ----------------
+
+
+---------------- script.js ----------------
+// Unsecured variables
+const ADMIN_USER = "admin";
+const ADMIN_PASSWORD = "cloud2026";
+
+// Function that is used to switch pages
+function redirectToPage(relativeURL) {
+  const absoluteURL = new URL(relativeURL, window.location.href);
+  window.location.replace(absoluteURL.href);
+}
+
+// Validation for the form inputs
+function validInputs() {
+  try {
+    let usernameInput = document.getElementById("username").value;
+    let passwordInput = document.getElementById("password").value;
+
+    if ((usernameInput === ADMIN_USER) && (passwordInput === ADMIN_PASSWORD)) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    return false;
+  }
+}
+
+// Event handler for when the "Login" button is pressed
+function loginButtonHandler() {
+  if (validInputs()) {
+    redirectToPage("landing.html");
+  } else {
+    alert("ERROR: Invalid input");
+  }
+}
